@@ -9,7 +9,7 @@ __pycache__/
 *.py[cod]
 
 # Ignore project and celery beat
-#.idea/*
+.idea/*
 .directory
 .cache/
 .python-version
