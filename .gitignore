@@ -1,0 +1,15 @@
+# Ignore cache and migrate folder
+__pycache__/
+*/__pycache__/
+**/__pycache__/
+*/__pycache__/*
+.pytest_cache/
+*/.pytest_cache/*
+**/.pytest_cache/
+*.py[cod]
+
+# Ignore project and celery beat
+.idea/*
+.directory
+.cache/
+.python-version
