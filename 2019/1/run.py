@@ -1,3 +1,5 @@
+# https://adventofcode.com/2019/day/1
+
 with open('2019/1/input.txt', 'r') as input_file:
     result = 0
     for item in input_file:
