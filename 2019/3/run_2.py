@@ -1,13 +1,15 @@
 import re
 
 
-def get_path(line) -> list:
+def get_path(line) -> dict:
     x = 0
     y = 0
-    result = []
+    long = 0
+    result = {}
     for move, distance in re.findall(r"(\w)(\d*)", line):
         distance = int(distance)
         for i in range(distance):
+            long += 1
             if move == 'R':
                 x += 1
             elif move == 'L':
@@ -16,7 +18,9 @@ def get_path(line) -> list:
                 y += 1
             elif move == 'D':
                 y -= 1
-            result.append((y, x))
+            key = f"{x}_{y}"
+            if not result.get(key):
+                result[key] = long
     return result
 
 
@@ -28,8 +32,8 @@ if __name__ == "__main__":
         path2 = get_path(line2)
 
         distance = None
-        for x, y in list(set(path1) & set(path2)):
-            point_distance = abs(x) + abs(y)
+        for key in list(set(path1.keys()) & set(path2.keys())):
+            point_distance = path1[key] + path2[key]
             if not distance or point_distance < distance:
                 distance = point_distance
         print(distance)
