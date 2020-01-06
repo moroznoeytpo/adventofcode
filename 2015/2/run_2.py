@@ -1,4 +1,4 @@
-# https://adventofcode.com/2015/day/2
+# https://adventofcode.com/2015/day/2#part2
 
 with open('2015/2/input.txt', 'r') as input_file:
 	square = 0
