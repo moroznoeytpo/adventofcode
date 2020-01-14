@@ -1,6 +1,7 @@
 # https://adventofcode.com/2015/day/7
 
-def asd(variables, results):
+
+def find_variables(variables, results):
 	for r_k, r_v in results.copy().items():
 		for v_k, v_v in variables.copy().items():
 			result = None
@@ -30,6 +31,7 @@ def asd(variables, results):
 				results[v_k] = result
 	return variables, results
 
+
 with open('2015/7/input.txt', 'r') as input_file:
 	variables = {}
 	results = {}
@@ -46,7 +48,7 @@ with open('2015/7/input.txt', 'r') as input_file:
 			variables[key] = result[0:3]
 	num = 0
 	while variables:
-		variables, results = asd(variables, results)
+		variables, results = find_variables(variables, results)
 		# print('-----------------')
 		# print(variables)
 		# print(results)
