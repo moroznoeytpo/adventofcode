@@ -1,4 +1,3 @@
-# https://adventofcode.com/2015/day/6#part2
 import re
 
 with open('2015/6/input.txt', 'r') as input_file:

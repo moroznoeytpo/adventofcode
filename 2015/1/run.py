@@ -1,5 +1,3 @@
-# https://adventofcode.com/2015/day/1
-
 with open('2015/1/input.txt', 'r') as input_file:
 	content = input_file.read()
 	floor = 0

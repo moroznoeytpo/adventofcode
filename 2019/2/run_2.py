@@ -1,5 +1,3 @@
-# https://adventofcode.com/2019/day/2#part2
-
 from .run import program_1202
 
 

@@ -1,6 +1,3 @@
-# https://adventofcode.com/2015/day/8
-
-
 with open('2015/8/input.txt', 'r') as input_file:
     diff_count = 0
     for line in input_file:

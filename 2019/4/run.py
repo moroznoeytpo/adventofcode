@@ -1,5 +1,3 @@
-# https://adventofcode.com/2019/day/4
-
 from contextlib import suppress
 
 count = 0

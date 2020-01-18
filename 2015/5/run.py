@@ -1,5 +1,3 @@
-# https://adventofcode.com/2015/day/5
-
 with open('2015/5/input.txt', 'r') as input_file:
 	only = ['a', 'e', 'i', 'o', 'u']
 	not_containt = ["ab", "cd", "pq", "xy"]

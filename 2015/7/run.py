@@ -1,6 +1,3 @@
-# https://adventofcode.com/2015/day/7
-
-
 def find_variables(variables, results):
 	for r_k, r_v in results.copy().items():
 		for v_k, v_v in variables.copy().items():

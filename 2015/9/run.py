@@ -1,6 +1,3 @@
-# https://adventofcode.com/2015/day/9
-
-
 def get_way(matrix: dict, start: str, way: list, total_distance: int) -> tuple:
     new_way = way + [start]
     if len(new_way) == len(matrix):

@@ -1,5 +1,3 @@
-# https://adventofcode.com/2015/day/3#part2
-
 with open('2015/3/input.txt', 'r') as input_file:
 	santa_x, santa_y = 0, 0
 	robo_x, robo_y = 0, 0

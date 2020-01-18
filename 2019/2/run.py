@@ -1,6 +1,3 @@
-# https://adventofcode.com/2019/day/2
-
-
 def program_1202(program) -> int:
     for i in range(0, len(program), 4):
         if program[i] == 99:

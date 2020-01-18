@@ -1,5 +1,3 @@
-# https://adventofcode.com/2015/day/5#part2
-
 with open('2015/5/input.txt', 'r') as input_file:
 	total = 0
 	for text in input_file:
