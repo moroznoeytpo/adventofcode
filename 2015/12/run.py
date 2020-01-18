@@ -1,14 +1,5 @@
 import json
 
-def regex_chit(text):
-	import re
-	# Этот метод работает, но не считается )))
-	result = 0
-	for item in re.findall(r"(-?\d*)", text, flags=re.DOTALL):
-		if item:
-			result += int(item)
-	return result
-
 def calculate(data) -> tuple:
 	if isinstance(data, list):
 		for item in data:
