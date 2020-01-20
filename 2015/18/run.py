@@ -6,7 +6,8 @@ class Grid:
         self.grid = grid
 
     def turn(self):
-        for i, line in enumerate(deepcopy(self.grid)):
+        new_drid = deepcopy(self.grid)
+        for i, line in enumerate(self.grid):
             for j, point in enumerate(line):
                 neighbors = 0
                 for x in range(-1, 2):
@@ -16,22 +17,18 @@ class Grid:
                                 continue
                             if i+x < 0 or j+y < 0:
                                 continue
-                            if i == 0 and j == 2 and x == -1 and y == 0:
-                                print(self.grid[i+x][j+y])
-
                             if self.grid[i+x][j+y] == '#':
-                                # if i == 0 and j == 2:
-                                #     print(self.grid[i+x][j+z])
                                 neighbors += 1
                         except IndexError:
                             pass
                 if point == '#' and neighbors not in [2, 3]:
-                    self.grid[i][j] = '.'
+                    new_drid[i][j] = '.'
                 elif point == '.' and neighbors == 3:
-                    self.grid[i][j] = '#'
+                    new_drid[i][j] = '#'
+        self.grid = new_drid
 
 
-open = open('2015/18/tmp.txt', 'r')
+open = open('2015/18/input.txt', 'r')
 grid = []
 for line in open:
     ligths = []
@@ -40,11 +37,13 @@ for line in open:
     grid.append(ligths)
 
 obj = Grid(grid)
-for line in obj.grid:
-    print("".join(line))
-print('----------------')
-obj.turn()
+for _ in range(100):
+    obj.turn()
 
+count = 0
 for line in obj.grid:
-    print("".join(line))
+    for point in line:
+        if point == '#':
+            count += 1
+print(count)
 
