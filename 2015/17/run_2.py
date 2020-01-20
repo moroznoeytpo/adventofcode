@@ -42,4 +42,14 @@ litres = 150
 obj = Way(litres, containers)
 obj.collect()
 
-print(len(obj.result_ways))
+min_length = None
+total_count = 0
+for path, length in obj.result_ways.items():
+    count = path.count('-')
+    if not min_length or min_length > count:
+        total_count = 1
+        min_length = count
+    elif min_length == count:
+        total_count += 1
+print(min_length)
+print(total_count)
