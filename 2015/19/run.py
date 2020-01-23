@@ -12,17 +12,20 @@ class Molecules:
         for i in range(self.length):
             key = None
             shift = 1
-            if self.starting[i] in self.molecules:
-                key = self.starting[i]
-            elif i < self.length - 2 and self.starting[i] + self.starting[i+1] in self.molecules:
-                key = self.starting[i] + self.starting[i+1]
-                shift = 2
-            if key:
-                for item in self.molecules[key]:
-                    self.result.add(self.starting[0:i-1] + item + self.starting[i+shift])
+            try:
+                if self.starting[i] in self.molecules:
+                    key = self.starting[i]
+                elif self.starting[i] + self.starting[i+1] in self.molecules:
+                    key = self.starting[i] + self.starting[i+1]
+                    shift = 2
+                if key:
+                    for item in self.molecules[key]:
+                        self.result.add(self.starting[0:i] + item + self.starting[i+shift:self.length])
+            except IndexError:
+                pass
 
 
-input_file = open('2015/19/tmp.txt', 'r')
+input_file = open('2015/19/input.txt', 'r')
 
 new_molecules = set()
 molecules = {}
@@ -37,6 +40,7 @@ for line in input_file:
         starting = line
 
 obj = Molecules(molecules, starting)
-
+obj.run()
 print(obj.molecules)
-print(obj.result)
+print(obj.starting)
+print(len(obj.result))
