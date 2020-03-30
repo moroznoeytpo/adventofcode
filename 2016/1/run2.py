@@ -10,6 +10,7 @@ class StreetGrid:
         self.index = 0
         self.data = None
         self.point = 0
+        self.sign = 1
         self.unique_position = []
         self.duration = 0
 
@@ -29,13 +30,16 @@ class StreetGrid:
     def append_duration(self):
         self.duration += self.data[1]
 
-    def set_position(self):
+    def set_sign(self):
         if (self.data[0] == 'R' and self.direction in [1, 4]) or (self.data[0] == 'L' and self.direction in [2, 3]):
-            self.position[self.point] += self.data[1]
+            self.sign = 1
         elif (self.data[0] == 'R' and self.direction in [2, 3]) or (self.data[0] == 'L' and self.direction in [1, 4]):
-            self.position[self.point] -= self.data[1]
+            self.sign = -1
         else:
             raise Exception('not perform type')
+
+    def set_position(self):
+        self.position[self.point] += self.sign * self.data[1]
 
     def set_direction(self):
         if self.data[0] == 'R':
@@ -50,7 +54,7 @@ class StreetGrid:
     def save_position(self):
         position = list(self.position)
         for index in range(self.data[1]):
-            position[self.point] += 1
+            position[self.point] += self.sign * 1
             if position in self.unique_position:
                 raise Exception(f'position {position} already visited. And {self.get_distance(position)} blocks away')
             else:
@@ -60,6 +64,7 @@ class StreetGrid:
         self.set_data(item)
         self.append_duration()
         self.set_point()
+        self.set_sign()
         self.save_position()
         self.set_position()
         self.set_direction()
