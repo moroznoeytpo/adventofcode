@@ -1,6 +1,3 @@
-from contextlib import suppress
-
-
 class Keypad:
     def __init__(self, filename: str = 'input.txt'):
         self._filename = filename
