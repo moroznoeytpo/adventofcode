@@ -13,3 +13,4 @@ __pycache__/
 .directory
 .cache/
 .python-version
+venv/
