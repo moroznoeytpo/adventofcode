@@ -28,4 +28,5 @@ def get_line(number: int):
 
         square_index += 2
 
-print(get_line(347991))
+
+print(get_line(347991))  # 34581
